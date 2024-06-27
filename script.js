@@ -68,7 +68,7 @@ function createDailyReport() {
     document.getElementById("reportNumOfOrders").innerHTML = dailyNumOrders;
 
     //Creating a report .txt file
-    printThing = "Report Date: " + printDate + " | " + "Total purchase amount: $" + dailyTotal + " | " + "Number of Orders: " + dailyNumOrders;
+    printThing = "Report Date: " + printDate + " | " + "Total Sales: $" + dailyTotal + " | " + "Number of Orders: " + dailyNumOrders;
     let link = document.createElement('a');
     let file = new Blob([printThing], { type: 'text/plain' });
     link.href = URL.createObjectURL(file);
