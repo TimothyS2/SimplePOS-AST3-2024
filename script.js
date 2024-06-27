@@ -23,8 +23,6 @@ function cancelOrder() {
     document.getElementById("orderTotal").innerHTML = "$0";
 }
 
-//----------------------------------------------------------------------------------
-
 
 /*  This function adds the orderTotal onto the dailyTotal and increments the dailyNumOrders variable.
     It then stores dailyTotal and dailyNumOrders into localStorage variables so they can be accessed from the management page.
@@ -50,6 +48,16 @@ function confirmOrder() {
 
 }
 
+/* This function loads the current orderTotal and dailyNumOrders values upon loading the ordering page.
+This is done in order to prevent these variables from unintentionally disappearing when moving between pages. */
+function loadOrderTotal() {
+    dailyTotal = parseInt(localStorage.getItem('dailyTotal'));
+    dailyNumOrders = parseInt(localStorage.getItem('dailyNumOrders'));
+    document.getElementById("dailyTotal").innerHTML = "$" + dailyTotal;
+}
+
+//---------------------------------------------------------------------------------------------------------
+// Management Page Functions
 
 /* This function retrieves dailyTotal and dailyNumOrders from localStorage and displays the date, dailyTotal and number of orders into their respective HTML elements
  Then, it creates a .txt file containing the date, dailyTotal and dailyNumOrders data.
@@ -98,7 +106,7 @@ function loadReport(event) {
         reader.onload = function (e) {
             let fileContents = e.target.result.split(" | ");
             let reportDate = fileContents[0].slice(13);
-            let reportDailyTotal = fileContents[1].slice(23);
+            let reportDailyTotal = fileContents[1].slice(13);
             let reportNumOfOrders = fileContents[2].slice(18);
             document.getElementById("reportDate").innerHTML = reportDate;
             document.getElementById("reportDailyTotal").innerHTML = reportDailyTotal;
@@ -106,13 +114,4 @@ function loadReport(event) {
         };
         reader.readAsText(file);
     }
-}
-
-
-/* This function loads the current orderTotal and dailyNumOrders values upon loading the ordering page.
-This is done in order to prevent these variables from unintentionally disappearing when moving between pages. */
-function loadOrderTotal() {
-    dailyTotal = parseInt(localStorage.getItem('dailyTotal'));
-    dailyNumOrders = parseInt(localStorage.getItem('dailyNumOrders'));
-    document.getElementById("dailyTotal").innerHTML = "$" + dailyTotal;
 }
