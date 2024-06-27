@@ -1,5 +1,5 @@
 # SDD-2024-AST-POS-software
-This is a simple POS software that allows you to create orders from a list of products.
+This is a simple POS software that allows you to create orders from a list of menu items.
 
 *Features:*
 - Create orders from a list of menu items
