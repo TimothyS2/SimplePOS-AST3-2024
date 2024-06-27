@@ -62,7 +62,7 @@ function createDailyReport() {
     let date = new Date();
 
     // Retrieving the date and displaying the date, dailyTotal and dailyNumOrders
-    let printDate = date.getDate() + "-" + date.getMonth() + "-" + date.getFullYear();
+    let printDate = date.getDate() + "-" + (date.getMonth() + 1) + "-" + date.getFullYear();
     document.getElementById("reportDate").innerHTML = printDate;
     document.getElementById("reportDailyTotal").innerHTML = "$" + dailyTotal;
     document.getElementById("reportNumOfOrders").innerHTML = dailyNumOrders;
