@@ -61,7 +61,7 @@ function createDailyReport() {
     let dailyNumOrders = localStorage.getItem('dailyNumOrders');
     let date = new Date();
 
-    // Retrieving the date and displaying the date, dailyTotal and dailyNumOrders
+    // Retrieving the date and displaying the date, dailyTotal and dailyNumOrders.    date.getMonth is incremented by 1, as it is indexed with January = 0
     let printDate = date.getDate() + "-" + (date.getMonth() + 1) + "-" + date.getFullYear();
     document.getElementById("reportDate").innerHTML = printDate;
     document.getElementById("reportDailyTotal").innerHTML = "$" + dailyTotal;
