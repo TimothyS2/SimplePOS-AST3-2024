@@ -51,8 +51,8 @@ function confirmOrder() {
 /* This function loads the current orderTotal and dailyNumOrders values upon loading the ordering page.
 This is done in order to prevent these variables from unintentionally disappearing when moving between pages. */
 function loadOrderTotal() {
-    dailyTotal = parseInt(localStorage.getItem('dailyTotal'));
-    dailyNumOrders = parseInt(localStorage.getItem('dailyNumOrders'));
+    dailyTotal = parseFloat((localStorage.getItem('dailyTotal')));
+    dailyNumOrders = parseFloat(localStorage.getItem('dailyNumOrders'));
     document.getElementById("dailyTotal").innerHTML = "$" + dailyTotal;
 }
 
